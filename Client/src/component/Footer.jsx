@@ -391,7 +391,9 @@ const Footer = () => {
             </span>
             . All Rights Reserved.
           </p>
-          <span className="text-white font-bold text-xs sm:text-sm pr-100 ">Design by Earthix</span>
+          <span className="text-white font-bold text-xs sm:text-sm md:text-base pr-2 sm:pr-4 whitespace-nowrap">
+  Design by Earthix
+</span>
 
           <a
             href="#home"
