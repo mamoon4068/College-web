@@ -395,13 +395,31 @@ const Footer = () => {
   Design by Earthix
 </span>
 
-          <a
+          {/* <a
             href="#home"
             className="inline-flex items-center gap-2 text-xs font-semibold text-blue-200 transition-colors hover:text-white"
           >
             Back to top
             <Icon name="up" size={16} />
-          </a>
+          </a> */}
+            
+<a
+  href="#top"
+  onClick={(e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }}
+  className="inline-flex items-center gap-2 text-xs font-semibold text-blue-200 transition-colors hover:text-white"
+>
+  Back to top
+  <Icon name="up" size={16} />
+</a>
+
 
         </div>
 

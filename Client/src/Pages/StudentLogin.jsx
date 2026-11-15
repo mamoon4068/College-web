@@ -595,7 +595,7 @@ export default function StudentLogin() {
               {/* GOOGLE LOGIN */}
 
               <div className="min-w-0">
-                <StudentSocialLogin />
+                
               </div>
 
               {/* FACEBOOK LOGIN */}

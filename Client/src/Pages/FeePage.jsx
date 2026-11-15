@@ -958,7 +958,7 @@ const FeesPage = () => {
             </div>
 
             <a
-              href="https://gsnonline.org/"
+              href="/contact"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#E7B85B] px-6 py-4 text-sm font-bold text-[#102C50] transition-all duration-300 hover:-translate-y-1 hover:bg-white"

@@ -26,9 +26,9 @@ const slideData = {
     description:
       "Discover an inspiring learning environment where knowledge, creativity and practical skills come together to prepare you for tomorrow.",
     primaryButton: "Explore Academics",
-    primaryLink: "#academic",
+    primaryLink: "/academics",
     secondaryButton: "About Our College",
-    secondaryLink: "#about",
+    secondaryLink: "/about",
     image:
       heroStaffImage,
     imagePosition: "center",
@@ -40,9 +40,9 @@ const slideData = {
     description:
       "Build strong foundations through engaging teaching, collaborative learning and opportunities to discover your true potential.",
     primaryButton: "Explore Courses",
-    primaryLink: "#academic",
+    primaryLink: "/fees",
     secondaryButton: "View Admission",
-    secondaryLink: "#admission",
+    secondaryLink: "/admmisson",
     image:
       heroComputerImage,
     imagePosition: "center",
@@ -54,9 +54,9 @@ const slideData = {
     description:
       "Explore a learning experience that encourages curiosity, independent thinking and a lifelong passion for knowledge.",
     primaryButton: "Explore Facilities",
-    primaryLink: "#gallery",
+    primaryLink: "/gallerypage",
     secondaryButton: "Know More",
-    secondaryLink: "#about",
+    secondaryLink: "/about",
     image:
       heroKnowledgePower,
     imagePosition: "center",
@@ -68,9 +68,9 @@ const slideData = {
     description:
       "Experience interactive classrooms, supportive teaching and a learning environment designed to help every student progress.",
     primaryButton: "Discover Academics",
-    primaryLink: "#academic",
+    primaryLink: "/academics",
     secondaryButton: "Meet Our Authority",
-    secondaryLink: "#authority",
+    secondaryLink: "/authoritiespage",
     image:
       "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=2200&q=85",
     imagePosition: "center",
@@ -82,9 +82,9 @@ const slideData = {
     description:
       "Take part in campus activities, teamwork and student experiences that develop confidence, leadership and creativity.",
     primaryButton: "Explore Gallery",
-    primaryLink: "#gallery",
+    primaryLink: "/gallerypage",
     secondaryButton: "Student Life",
-    secondaryLink: "#about",
+    secondaryLink: "/about",
     image:
       "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=2200&q=85",
     imagePosition: "center",
@@ -96,9 +96,9 @@ const slideData = {
     description:
       "Start your academic journey with us. Explore admission opportunities and discover the right path for your future.",
     primaryButton: "Apply For Admission",
-    primaryLink: "#admission",
+    primaryLink: "/admmisson",
     secondaryButton: "View Fee Structure",
-    secondaryLink: "#fees",
+    secondaryLink: "/fees",
     image:
       heroAdmissonImage,
     imagePosition: "center",
@@ -261,7 +261,7 @@ const successStories = {
   neet: {
     exam: "NEET UG",
     category: "Medical Entrance",
-    name: "Student Name 01",
+    name: "Amit Patel",
     image: student1Image,
     metricLabel: "NEET Entrance Score",
     value: 685,
@@ -277,7 +277,7 @@ const successStories = {
   jeeMain: {
     exam: "JEE MAIN",
     category: "Engineering Entrance",
-    name: "Student Name 02",
+    name: "Sameer Khan",
     image: student2Image,
     metricLabel: "JEE Main Percentile",
     value: 99.84,
@@ -293,7 +293,7 @@ const successStories = {
   jeeAdvanced: {
     exam: "JEE ADVANCED",
     category: "Engineering Entrance",
-    name: "Student Name 03",
+    name: "Adarsh Singh",
     image: student3Image,
     metricLabel: "All India Rank",
     value: 142,
@@ -309,7 +309,7 @@ const successStories = {
   stateBoard12: {
     exam: "STATE BOARD",
     category: "Class XII • Science",
-    name: "Student Name 04",
+    name: "Komal Kumari",
     image: student4Image,
     metricLabel: "Board Examination Result",
     value: 98.6,
@@ -325,7 +325,7 @@ const successStories = {
   cbse12: {
     exam: "CBSE",
     category: "Central Board • Class XII",
-    name: "Student Name 05",
+    name: "Naim Ansari",
     image: student5Image,
     metricLabel: "CBSE Examination Result",
     value: 97.8,
@@ -341,7 +341,7 @@ const successStories = {
   stateBoard10: {
     exam: "STATE BOARD",
     category: "Class X • Board Examination",
-    name: "Student Name 06",
+    name: "Adil Khan",
     image: student6Image,
     metricLabel: "Board Examination Result",
     value: 97.4,
