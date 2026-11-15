@@ -1,20 +1,13 @@
 
 import "dotenv/config";
-import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-
 import connectDB from "./config/db.js";
 import studentAuthRoutes from "./routes/studentAuthRoutes.js";
-
-
-
 import contactRoutes from "./routes/contactRoutes.js";
 
 import express from "express";
-import cors from "cors";
-import connectDB from "./config/db.js";
 
 
 const app = express();
