@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import collegePhoto from "../assets/AboutUs-College-image.jpg";
 
-import PrincipalDr from "..assets/Principal.png";
+import PrincipalDr from "../assets/Principal.png";
 
 // 👉 Apni photo ka sahi naam/path yahan likhein (src/assets/ ke andar)
 // Director / Principal ki photo ho to yahan import karein, warna initials dikhenge
