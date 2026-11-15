@@ -1,4 +1,118 @@
 node_modules/
 .env
+.env*
 .DS_Store
 npm-debug.log
+# =====================================
+# DEPENDENCIES
+# =====================================
+node_modules/
+**/node_modules/
+
+# =====================================
+# BUILD & DIST FILES
+# =====================================
+dist/
+dist-ssr/
+build/
+out/
+coverage/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.turbo/
+
+# =====================================
+# ENVIRONMENT & SECRET FILES
+# =====================================
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# =====================================
+# LOG FILES
+# =====================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =====================================
+# LOCAL CONFIGURATION
+# =====================================
+*.local
+*.development.local
+*.test.local
+*.production.local
+
+# =====================================
+# EDITORS & IDE
+# =====================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# =====================================
+# OPERATING SYSTEM
+# =====================================
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# =====================================
+# TEMPORARY FILES
+# =====================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.old
+
+# =====================================
+# TEST & COVERAGE
+# =====================================
+coverage/
+.nyc_output/
+
+# =====================================
+# DATABASE & BACKUP FILES
+# =====================================
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.bak
+
+# =====================================
+# PYTHON (IF USED)
+# =====================================
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# =====================================
+# DEPLOYMENT LOCAL FILES
+# =====================================
+.vercel/
+.netlify/
+.firebase/
+
+# =====================================
+# GENERATED FILES
+# =====================================
+*.tsbuildinfo
+vite.svg
