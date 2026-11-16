@@ -12,7 +12,6 @@ const eventSchema = new mongoose.Schema(
     date: {
       type: String,
       required: true,
-      match: /^\d{4}-\d{2}-\d{2}$/,
     },
 
     category: {
@@ -30,6 +29,12 @@ const eventSchema = new mongoose.Schema(
     venue: {
       type: String,
       required: true,
+    },
+
+    image: {
+      type:
+      String,
+      default:"",
     },
 
     time: {
