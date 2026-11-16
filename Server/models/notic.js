@@ -41,4 +41,4 @@ const noticeSchema = new mongoose.Schema(
 
 const Notice = mongoose.model("Notice", noticeSchema);
 
-export default Notice;
+export default notice;

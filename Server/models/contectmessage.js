@@ -90,4 +90,4 @@ const ContactMessage = mongoose.model(
 );
 
 
-export default ContactMessage;
+export default contactMessage;

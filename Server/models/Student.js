@@ -1,6 +1,5 @@
 
 import mongoose from "mongoose";
-import Student from "Server/controllers/studentAuthController.js"
 const studentSchema = new mongoose.Schema(
   {
     name: {
