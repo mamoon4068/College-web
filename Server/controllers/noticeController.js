@@ -1,5 +1,5 @@
 
-import Notice from "../models/Notice.js";
+import Notice from "../models/notic.js";
 
 // GET ALL NOTICES
 export const getNotices = async (req, res) => {
