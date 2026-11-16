@@ -86,7 +86,7 @@
 //             <a
 //               key={link.name}
 //               href={link.href}
-//                className="nav-link group relative whitespace-nowrap text-xs font-semibold text-gray-700 transition-colors duration-300 hover:text-blue-700 xl:text-sm 3xl:text-base"            >
+//                className="nav-link group relative whitespace-nowrap text-sm font-semibold text-gray-700 transition-colors duration-300 hover:text-blue-700 xl:text-base 3xl:text-lg"            >
 //               {link.name}
 
 //               <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-blue-700 transition-all duration-300 group-hover:w-full" />
@@ -101,7 +101,7 @@
 //             <a
 //               key={login.name}
 //               href={login.href}
-//               className="inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-blue-200 bg-blue-50 px-2 py-2.5 text-[10px] font-bold text-blue-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-800 hover:bg-blue-800 hover:text-white xl:px-2.5 xl:text-xs 2xl:px-3 2xl:text-sm"
+//               className="inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-blue-200 bg-blue-50 px-2 py-2.5 text-xs font-bold text-blue-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-800 hover:bg-blue-800 hover:text-white xl:px-2.5 xl:text-sm 2xl:px-3 2xl:text-base"
 //             >
 //               <span className="text-sm">{login.icon}</span>
 //               {login.name}
@@ -160,7 +160,7 @@
 //                 key={link.name}
 //                 href={link.href}
 //                 onClick={closeMenu}
-//                 className="rounded-lg px-4 py-3 text-sm font-semibold text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-800"
+//                 className="rounded-lg px-4 py-3 text-base font-semibold text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-800"
 //               >
 //                 {link.name}
 //               </a>
@@ -169,7 +169,7 @@
 
 //           {/* Mobile Login Buttons */}
 //           <div className="mt-4 border-t border-gray-200 pt-4">
-//             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-400">
+//             <p className="mb-3 text-sm font-bold uppercase tracking-widest text-gray-400">
 //               Login Portals
 //             </p>
 
@@ -179,7 +179,7 @@
 //                   key={login.name}
 //                   href={login.href}
 //                   onClick={closeMenu}
-//                   className="flex items-center justify-center gap-2 rounded-lg bg-blue-800 px-3 py-3 text-sm font-semibold text-white transition hover:bg-blue-950"
+//                   className="flex items-center justify-center gap-2 rounded-lg bg-blue-800 px-3 py-3 text-base font-semibold text-white transition hover:bg-blue-950"
 //                 >
 //                   <span>{login.icon}</span>
 //                   {login.name}
@@ -270,8 +270,8 @@ const Navbar = () => {
   // Navigation link renderer
   const renderNavLink = (link, mobile = false) => {
     const className = mobile
-      ? "rounded-lg px-4 py-3 text-sm font-semibold text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-800"
-      : "nav-link group relative whitespace-nowrap text-xs font-semibold text-gray-700 transition-colors duration-300 hover:text-blue-700 xl:text-sm 3xl:text-base";
+      ? "rounded-lg px-4 py-3 text-base font-semibold text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-800"
+      : "nav-link group relative whitespace-nowrap text-sm font-semibold text-gray-700 transition-colors duration-300 hover:text-blue-700 xl:text-base 3xl:text-lg";
 
     // React Router navigation for separate pages
     if (link.href.startsWith("/")) {
@@ -311,10 +311,10 @@ const Navbar = () => {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 mx-auto w-full max-w-7xl border-b border-gray-200 bg-white shadow-md"
+      className="sticky top-0 z-50 mx-auto  w-full max-w-7xl border-b border-gray-200 bg-white shadow-md"
     >
       {/* ================= DESKTOP NAVBAR ================= */}
-      <nav className="hidden lg:grid w-full max-w-[1800px] mx-auto grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 xl:px-6">
+      <nav className="hidden lg:grid w-full max-w-[1800px] text-8xl mx-auto grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 xl:px-6">
 
         {/* College Logo */}
         <Link to="/" onClick={closeMenu} className="nav-logo shrink-0">
@@ -326,7 +326,7 @@ const Navbar = () => {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex min-w-0 items-center justify-center gap-x-2 xl:gap-x-3 2xl:gap-x-4">
+        <div className="flex min-w-0  items-center justify-center gap-x-2 xl:gap-x-3 2xl:gap-x-4">
           {navLinks.map((link) => renderNavLink(link))}
         </div>
 
@@ -336,7 +336,7 @@ const Navbar = () => {
             <a
               key={login.name}
               href={login.href}
-              className="inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-blue-200 bg-blue-50 px-2 py-2.5 text-[10px] font-bold text-blue-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-800 hover:bg-blue-800 hover:text-white xl:px-2.5 xl:text-xs 2xl:px-3 2xl:text-sm"
+              className="inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg border border-blue-200 bg-blue-50 px-2 py-2.5 text-xs font-bold text-blue-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-800 hover:bg-blue-800 hover:text-white xl:px-2.5 xl:text-sm 2xl:px-3 2xl:text-base"
             >
               <span className="text-sm">{login.icon}</span>
               {login.name}
@@ -394,7 +394,7 @@ const Navbar = () => {
 
           {/* Mobile Login Buttons */}
           <div className="mt-4 border-t border-gray-200 pt-4">
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-400">
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-gray-400">
               Login Portals
             </p>
 
@@ -404,7 +404,7 @@ const Navbar = () => {
                   key={login.name}
                   href={login.href}
                   onClick={closeMenu}
-                  className="flex items-center justify-center gap-2 rounded-lg bg-blue-800 px-3 py-3 text-sm font-semibold text-white transition hover:bg-blue-950"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-blue-800 px-3 py-3 text-base font-semibold text-white transition hover:bg-blue-950"
                 >
                   <span>{login.icon}</span>
                   {login.name}
@@ -419,6 +419,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

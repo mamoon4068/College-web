@@ -2020,7 +2020,7 @@ const SchoolCurriculum = () => {
 
 
           <a
-            href="#admission"
+            href="/admmisson"
             className="inline-flex shrink-0 items-center gap-3 rounded-xl bg-[#F0805A] px-6 py-4 text-xs font-extrabold text-white transition-all hover:-translate-y-1 hover:bg-[#E66C43] hover:shadow-lg hover:shadow-orange-500/20"
           >
             Admission Enquiry
