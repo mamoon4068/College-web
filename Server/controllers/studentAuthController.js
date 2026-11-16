@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { OAuth2Client } from "google-auth-library";
 
-import Student from "../models/Student.js";
+import Student from "../models/student.js";
 import asyncHandler from "../utils/asyncHandler.js";
 
 const googleClient = new OAuth2Client();

@@ -1,6 +1,6 @@
 
 import jwt from "jsonwebtoken";
-import Student from "../models/Student.js";
+import Student from "../models/student.js";
 import asyncHandler from "../utils/asyncHandler.js";
 
 const authMiddleware = asyncHandler(async (req, res, next) => {

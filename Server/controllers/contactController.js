@@ -1,4 +1,4 @@
-import ContactMessage from "../models/ContactMessage.js";
+import ContactMessage from "../models/contectmessage.js";
 
 
 // Create Contact Message
