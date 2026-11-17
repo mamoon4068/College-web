@@ -1,49 +1,16 @@
-
-
-// import mongoose from "mongoose";
-
-// const connectDB = async () => {
-//   try {
-//     const connection = await mongoose.connect(
-//       process.env.MONGO_URI
-//     );
-
-//     console.log(
-//       `MongoDB Connected: ${connection.connection.host}`
-//     );
-
-//     console.log(
-//       `Database Name: ${connection.connection.name}`
-//     );
-
-//   } catch (error) {
-//     console.error("MongoDB Connection Failed:", error.message);
-//     process.exit(1);
-//   }
-// };
-
-// export default connectDB;
-
-
-
-
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
+  const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
 
-    console.log("MongoDB Connected Successfully");
-  } catch (error) {
-    console.error("MongoDB Connection Error:", error.message);
-    process.exit(1);
+  if (!uri) {
+    throw new Error("Set MONGO_URI or MONGODB_URI in the server environment");
   }
-  //next use chatgpt
-  await mongoose.connect(process.env.MONGO_URI, {
+
+  await mongoose.connect(uri, {
     dbName: "College-web",
   });
-  console.log("connected Databse:", mongoose.connection.name);
-
+  console.log("MongoDB Connected Successfully");
 };
 
 export default connectDB;

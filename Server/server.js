@@ -300,6 +300,8 @@ import {
 
 import { checkOrigin } from "./middleware/checkOrigin.js";
 
+const app = express();
+
 app.use((req, res, next) => {
   if (
     ["POST", "PUT", "PATCH", "DELETE"].includes(req.method)
@@ -309,8 +311,6 @@ app.use((req, res, next) => {
 
   next();
 });
-
-const app = express();
 
 const PORT = process.env.PORT || 4000;
 
