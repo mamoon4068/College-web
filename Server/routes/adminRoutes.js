@@ -6,7 +6,7 @@ import {
   loginAdmin,
   getAdmin,
   logoutAdmin,
-} from "../controllers/adminController.js";
+} from "../controllers/authController.js";
 
 import { adminAuth } from "../middleware/adminAuth.js";
 
