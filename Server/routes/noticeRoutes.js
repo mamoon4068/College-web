@@ -1,25 +1,31 @@
 
 import express from "express";
 
+import { adminAuth } from "../middleware/adminAuth.js";
+
 import {
-  getNotices,
-  getNoticeById,
+  getPublicNotices,
+  getAdminNotices,
   createNotice,
   updateNotice,
   deleteNotice,
 } from "../controllers/noticeController.js";
 
-import adminAuth from "../middleware/adminAuth.js";
-
 const router = express.Router();
 
-// Public routes
-router.get("/", getNotices);
-router.get("/:id", getNoticeById);
+router.get("/", getPublicNotices);
 
-// Admin protected routes
+router.get(
+  "/admin/all",
+  adminAuth,
+  getAdminNotices
+);
+
 router.post("/", adminAuth, createNotice);
-router.put("/:id", adminAuth, updateNotice);
+
+router.patch("/:id", adminAuth, updateNotice);
+
 router.delete("/:id", adminAuth, deleteNotice);
 
 export default router;
+

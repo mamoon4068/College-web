@@ -1,41 +1,53 @@
 
 import jwt from "jsonwebtoken";
+import Admin from "../models/Admin.js";
 
-const adminAuth = (req, res, next) => {
+export const adminAuth = async (req, res, next) => {
   try {
-    const authHeader = req.headers.authorization;
+    const token = req.cookies?.adminToken;
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    if (!token) {
       return res.status(401).json({
         success: false,
-        message: "Authentication required",
+        message: "Please login as admin",
       });
     }
-
-    const token = authHeader.split(" ")[1];
 
     const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET
     );
 
-    if (decoded.role !== "admin") {
+    if (decoded.type !== "school-admin") {
       return res.status(403).json({
         success: false,
-        message: "Admin access only",
+        message: "Invalid admin token",
       });
     }
 
-    req.user = decoded;
+    const admin = await Admin.findById(decoded.id);
+
+    if (!admin) {
+      return res.status(401).json({
+        success: false,
+        message: "Admin account not found",
+      });
+    }
+
+    if (!["admin", "superadmin"].includes(admin.role)) {
+      return res.status(403).json({
+        success: false,
+        message: "Access denied",
+      });
+    }
+
+    req.admin = admin;
 
     next();
-
   } catch (error) {
     return res.status(401).json({
       success: false,
-      message: "Invalid or expired token",
+      message: "Invalid or expired session",
     });
   }
 };
-
-export default adminAuth;

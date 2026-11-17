@@ -9,49 +9,41 @@ const eventSchema = new mongoose.Schema(
       trim: true,
     },
 
-    date: {
-      type: String,
-      required: true,
-    },
-
-    category: {
-      type: String,
-      required: true,
-      enum: ["Celebration", "Academic", "Meeting", "Sports"],
-    },
-
     description: {
       type: String,
       required: true,
       trim: true,
     },
 
+    date: {
+      type: Date,
+      required: true,
+    },
+
     venue: {
       type: String,
-      required: true,
+      default: "School Campus",
     },
 
-    image: {
-      type:
-      String,
-      default:"",
-    },
-
-    time: {
+    imageUrl: {
       type: String,
-      required: true,
+      default: "",
     },
 
-    icon: {
-      type: String,
-      default: "🎉",
+    published: {
+      type: Boolean,
+      default: false,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-const Event = mongoose.model("Event", eventSchema);
+eventSchema.index({
+  published: 1,
+  date: 1,
+});
 
-export default Event;
+export default mongoose.model(
+  "Event",
+  eventSchema
+);

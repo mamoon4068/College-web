@@ -1,11 +1,12 @@
 
 import mongoose from "mongoose";
-const studentSchema = new mongoose.Schema(
+
+const adminSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
 
     email: {
@@ -13,30 +14,25 @@ const studentSchema = new mongoose.Schema(
       required: true,
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
 
     password: {
       type: String,
       required: true,
-      select: false
+      select: false,
     },
 
     role: {
       type: String,
-      default: "student"
+      enum: ["admin", "superadmin"],
+      default: "admin",
     },
-
-    googleId: {
-      type: String,
-      default: null
-    }
   },
-  {
-    timestamps: true
-  }
+  { timestamps: true }
 );
 
-const Student = mongoose.model("Student", studentSchema);
-
-export default Student;
+export default mongoose.model(
+  "Admin",
+  adminSchema
+);
