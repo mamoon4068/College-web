@@ -1,61 +1,53 @@
-
-import "dotenv/config";
-
+import dotenv from "dotenv";
+import { fileURLToPath } from "node:url";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-
 import Admin from "../models/Admin.js";
+import connectDB from "../config/db.js";
 
-async function createAdmin() {
-  try {
-    const name = process.env.INIT_ADMIN_NAME;
-    const email = process.env.INIT_ADMIN_EMAIL;
-    const password = process.env.INIT_ADMIN_PASSWORD;
+// Resolve Server/.env independently of the terminal's working directory.
+dotenv.config({ path: fileURLToPath(new URL("../.env", import.meta.url)), quiet: true });
 
-    if (!name || !email || !password) {
-      throw new Error(
-        "Set INIT_ADMIN_NAME, INIT_ADMIN_EMAIL and INIT_ADMIN_PASSWORD"
-      );
-    }
+try {
+  const name = (process.env.INIT_ADMIN_NAME || "School Administrator").trim();
+  const email = (process.env.INIT_ADMIN_EMAIL || process.env.ADMIN_EMAIL || "")
+    .trim()
+    .toLowerCase();
+  const password = process.env.INIT_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+  const missing = [];
 
-    if (password.length < 12) {
-      throw new Error(
-        "Admin password must be at least 12 characters"
-      );
-    }
+  if (!process.env.MONGO_URI && !process.env.MONGODB_URI) {
+    missing.push("MONGO_URI (or MONGODB_URI)");
+  }
+  if (!email) missing.push("INIT_ADMIN_EMAIL (or ADMIN_EMAIL)");
+  if (!password) missing.push("INIT_ADMIN_PASSWORD (or ADMIN_PASSWORD)");
 
-    await mongoose.connect(
-      process.env.MONGODB_URI
-    );
+  if (missing.length) {
+    throw new Error(`Missing environment variables: ${missing.join(", ")}`);
+  }
 
-    const existing = await Admin.findOne({
-      email: email.trim().toLowerCase(),
-    });
+  // Use the same database configuration as the backend.
+  await connectDB();
 
-    if (existing) {
-      console.log("Admin already exists");
-      return;
-    }
+  const existing = await Admin.findOne({ email });
 
-    const hashedPassword = await bcrypt.hash(
-      password,
-      12
-    );
+  if (existing) {
+    console.log("Admin already exists");
+  } else {
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     await Admin.create({
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
+      name,
+      email,
       password: hashedPassword,
-      role: "superadmin",
+      role: "admin",
     });
 
-    console.log("First admin created successfully");
-  } catch (error) {
-    console.error("Create admin failed:", error.message);
-    process.exitCode = 1;
-  } finally {
-    await mongoose.disconnect();
+    console.log("Admin created successfully");
   }
+} catch (error) {
+  console.error("Create admin failed:", error.message);
+  process.exitCode = 1;
+} finally {
+  await mongoose.disconnect();
 }
-
-createAdmin();

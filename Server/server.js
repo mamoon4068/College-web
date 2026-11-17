@@ -230,7 +230,6 @@
 
 
 
-
 import "dotenv/config";
 
 // ==========================================
@@ -258,6 +257,8 @@ import contactRoutes from "./routes/contactRoutes.js";
 // ==========================================
 // 4. ADMIN AND CMS ROUTES
 // ==========================================
+
+
 
 import adminRoutes from "./routes/adminRoutes.js";
 import noticeRoutes from "./routes/noticeRoutes.js";
@@ -301,16 +302,6 @@ import {
 import { checkOrigin } from "./middleware/checkOrigin.js";
 
 const app = express();
-
-app.use((req, res, next) => {
-  if (
-    ["POST", "PUT", "PATCH", "DELETE"].includes(req.method)
-  ) {
-    return checkOrigin(req, res, next);
-  }
-
-  next();
-});
 
 const PORT = process.env.PORT || 4000;
 
@@ -373,6 +364,16 @@ app.use(
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  if (
+    ["POST", "PUT", "PATCH", "DELETE"].includes(req.method)
+  ) {
+    return checkOrigin(req, res, next);
+  }
+
+  next();
+});
 
 // ==========================================
 // 11. BODY PARSER MIDDLEWARE
@@ -443,6 +444,7 @@ app.use(
 // ==========================================
 // 17. ADMIN AUTHENTICATION ROUTES
 // ==========================================
+
 
 app.use(
   "/api/admin",

@@ -1,7 +1,7 @@
 
 export function checkOrigin(req, res, next) {
   const allowed = (
-    process.env.FRONTEND_URL || "http://localhost:5173"
+    process.env.FRONTEND_URL || process.env.CLIENT_URL || "http://localhost:5173"
   )
     .split(",")
     .map((url) => url.trim());
