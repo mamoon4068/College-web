@@ -8,7 +8,7 @@ import { api, getError } from "../lib/api";
 import {
   PageHeader, Reveal, Modal, Alert, Loading,
   Empty, inputClass, primaryButton, panelClass,
-} from "../components/AdminUI";
+} from "../component/Adminui";
 
 export default function ManageGallery() {
   const [photos, setPhotos] = useState([]);

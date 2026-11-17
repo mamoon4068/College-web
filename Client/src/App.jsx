@@ -1,3 +1,11 @@
+import { Navigate } from "react-router-dom";
+import { AuthProvider } from "./Admin/AuthContext";
+import ProtectedRoute from "./Admin/ProtectedRoute";
+import AdminLayout from "./Admin/AdminLayout";
+import AdminDashboard from "./Admin/AdminDashboard";
+import ManageEvents from "./Admin/ManageEvents";
+import ManageGallery from "./Admin/ManageGallery";
+import ManageNotices from "./Admin/ManageNotices";
 import React from 'react'
 import {  Routes, Route } from "react-router-dom"
 import TickerBar from "./component/TickerBar";
@@ -25,7 +33,17 @@ const App = () => {
       {/* <Routes>
       <Route path='/hero' element={<Hero />} />
       <Route path="/about" element={<AboutUs/>} />
-      </Routes> */}
+      <Route path="/admin/login" element={<AdminLogin />} />
+<Route element={<ProtectedRoute />}>
+  <Route path="/admin" element={<AdminLayout />}>
+    <Route index element={<AdminDashboard />} />
+    <Route path="dashboard" element={<Navigate to="/admin" replace />} />
+    <Route path="events" element={<ManageEvents />} />
+    <Route path="gallery" element={<ManageGallery />} />
+    <Route path="notices" element={<ManageNotices />} />
+  </Route>
+</Route>
+</Routes> */}
 
       <Routes>
   <Route path="/" element={<Hero />} />
@@ -41,6 +59,16 @@ const App = () => {
 <Route path="/staff-login" element={<StaffLogin />} />
 <Route path="/adminlogin" element={<AdminLogin/>} />
 
+<Route path="/admin/login" element={<AdminLogin />} />
+<Route element={<ProtectedRoute />}>
+  <Route path="/admin" element={<AdminLayout />}>
+    <Route index element={<AdminDashboard />} />
+    <Route path="dashboard" element={<Navigate to="/admin" replace />} />
+    <Route path="events" element={<ManageEvents />} />
+    <Route path="gallery" element={<ManageGallery />} />
+    <Route path="notices" element={<ManageNotices />} />
+  </Route>
+</Route>
 </Routes>
       <Footer/>
     </div>
@@ -48,7 +76,7 @@ const App = () => {
   )
 }
 
-export default App
+export default function AppWithAuth() { return <AuthProvider><App /></AuthProvider>; }
 
 
 

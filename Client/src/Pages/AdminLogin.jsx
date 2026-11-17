@@ -1,7 +1,7 @@
-
-
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Admin/AuthContext";
 
 // Small reusable icons
 const MailIcon = () => (
@@ -68,6 +68,8 @@ const EyeIcon = ({ visible }) => (
 
 const AdminLogin = ({ onLogin }) => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -126,24 +128,22 @@ const AdminLogin = ({ onLogin }) => {
     e.preventDefault();
     setMessage("");
 
-    if (!onLogin) {
-      setMessage(
-        "Login UI is ready. Connect your admin authentication API."
-      );
-      return;
-    }
-
     try {
       setLoading(true);
 
-      await onLogin({
-        email,
-        password,
-        rememberMe,
-      });
+      if (onLogin) {
+        await onLogin({ email: email.trim(), password, rememberMe });
+      } else {
+        const data = await login(email.trim(), password);
+        if (!data.success) {
+          throw new Error(data.message || "Login failed. Please check your credentials.");
+        }
+        setMessage(data.message || "Login successful");
+      }
+      navigate("/admin", { replace: true });
     } catch (error) {
       setMessage(
-        error.message || "Login failed. Please check your credentials."
+        error.response?.data?.message || error.message || "Login failed. Please check your credentials."
       );
     } finally {
       setLoading(false);
@@ -156,6 +156,9 @@ const AdminLogin = ({ onLogin }) => {
       "Please contact your school's IT administrator to reset your password."
     );
   };
+
+
+
 
   return (
     <div
@@ -280,7 +283,7 @@ const AdminLogin = ({ onLogin }) => {
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-6">
 
             {/* Email */}
             <div>
@@ -302,7 +305,7 @@ const AdminLogin = ({ onLogin }) => {
                   name="email"
                   required
                   autoComplete="username"
-                  placeholder="admin@school.com"
+                  placeholder="Enter admin email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-12 pr-4 text-sm text-slate-800 outline-none transition-all duration-300 placeholder:text-slate-400 hover:border-blue-300 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10"

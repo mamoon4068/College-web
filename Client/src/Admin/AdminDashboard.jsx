@@ -8,7 +8,7 @@ import {
 import { api, getError } from "../lib/api";
 import {
   PageHeader, Reveal, Loading, Alert, panelClass,
-} from "../components/AdminUI";
+} from "../component/Adminui";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null);

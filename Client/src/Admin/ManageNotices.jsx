@@ -5,7 +5,7 @@ import { api, getError } from "../lib/api";
 import {
   PageHeader, Reveal, Modal, Alert, Loading,
   Empty, Status, inputClass, primaryButton, panelClass,
-} from "../components/AdminUI";
+} from "../component/Adminui";
 
 const blank = {
   title: "",
