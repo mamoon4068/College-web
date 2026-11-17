@@ -40,6 +40,11 @@ export function Modal({ title, onClose, children }) {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Animate only when the modal opens, independently of form updates.
+  useEffect(() => {
 
     const ctx = gsap.context(() => {
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -53,9 +58,9 @@ export function Modal({ title, onClose, children }) {
 
     return () => {
       ctx.revert();
-      window.removeEventListener("keydown", onKey);
+
     };
-  }, [onClose]);
+  }, []);
 
   return (
     <div

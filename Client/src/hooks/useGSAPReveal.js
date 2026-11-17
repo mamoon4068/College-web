@@ -4,6 +4,7 @@ import gsap from "gsap";
 
 export default function useGSAPReveal(dependencies = []) {
   const container = useRef(null);
+  const revealed = useRef(new WeakSet());
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -22,8 +23,13 @@ export default function useGSAPReveal(dependencies = []) {
         return;
       }
 
+      // Data refreshes should reveal new nodes without hiding existing content.
+      const newElements = elements.filter((element) => !revealed.current.has(element));
+      newElements.forEach((element) => revealed.current.add(element));
+      if (!newElements.length) return;
+
       gsap.fromTo(
-        elements,
+        newElements,
         {
           autoAlpha: 0,
           y: 24,

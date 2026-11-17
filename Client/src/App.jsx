@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { AuthProvider } from "./Admin/AuthContext";
 import ProtectedRoute from "./Admin/ProtectedRoute";
 import AdminLayout from "./Admin/AdminLayout";
@@ -22,30 +22,21 @@ import ContactSection from './Pages/Contect';
 import StudentLogin from "./Pages/StudentLogin";
 import StaffLogin from "./Pages/StaffLogin";
 import AdminLogin from "./Pages/AdminLogin";
+function SchoolLayout() {
+  return <><TickerBar /><Navbar /><Outlet /><Footer /></>;
+}
+
 const App = () => {
   return (
      
     <div>
      
-      <TickerBar />
-      <Navbar />
-      
-      {/* <Routes>
-      <Route path='/hero' element={<Hero />} />
-      <Route path="/about" element={<AboutUs/>} />
-      <Route path="/admin/login" element={<AdminLogin />} />
-<Route element={<ProtectedRoute />}>
-  <Route path="/admin" element={<AdminLayout />}>
-    <Route index element={<AdminDashboard />} />
-    <Route path="dashboard" element={<Navigate to="/admin" replace />} />
-    <Route path="events" element={<ManageEvents />} />
-    <Route path="gallery" element={<ManageGallery />} />
-    <Route path="notices" element={<ManageNotices />} />
-  </Route>
-</Route>
-</Routes> */}
 
+
+      
+  
       <Routes>
+  <Route element={<SchoolLayout />}>
   <Route path="/" element={<Hero />} />
   <Route path="/about" element={<AboutUs />} />
   <Route path="/AuthoritiesPage" element={<AuthoritiesPage/>} />
@@ -60,6 +51,7 @@ const App = () => {
 <Route path="/adminlogin" element={<AdminLogin/>} />
 
 <Route path="/admin/login" element={<AdminLogin />} />
+</Route>
 <Route element={<ProtectedRoute />}>
   <Route path="/admin" element={<AdminLayout />}>
     <Route index element={<AdminDashboard />} />
@@ -70,7 +62,7 @@ const App = () => {
   </Route>
 </Route>
 </Routes>
-      <Footer/>
+
     </div>
     
   )

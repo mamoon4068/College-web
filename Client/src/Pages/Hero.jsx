@@ -628,20 +628,20 @@ const successStories = {
       <div className="relative mx-auto max-w-325">
 
         {/* Section Heading */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto  mb-14 max-w-3xl text-center">
 
-          <span className="success-heading inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[2px] text-blue-700 shadow-sm">
+          {/* <span className="success-heading inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[2px] text-blue-700 shadow-sm">
             🏆 Celebrating Excellence
-          </span>
+          </span> */}
 
           <h2 className="success-heading mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl">
             Our Pride, Our{" "}
-            <span className="bg-linear-to-r from-blue-700 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r  bg-clip-text ">
               Success Stories
             </span>
           </h2>
 
-          <p className="success-intro mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+          <p className="success-intro mx-auto mt-5 max-w-5xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Every achievement represents dedication, determination and hard
             work. We celebrate our students who inspire the next generation
             through their academic excellence.

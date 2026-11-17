@@ -1,3 +1,6 @@
+import TickerBar from "../component/TickerBar";
+import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
 
 import { useState, useRef, useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
@@ -147,6 +150,8 @@ export default function AdminLayout() {
       </aside>
 
       <div className="min-w-0 flex-1 md:ml-67.5">
+        <TickerBar />
+        <Navbar />
         <header className="sticky top-0 z-20 flex h-20 items-center justify-between border-b border-slate-200/80 bg-white/90 px-5 backdrop-blur-xl sm:px-8">
           <div className="flex items-center gap-4">
             <button
@@ -175,6 +180,7 @@ export default function AdminLayout() {
         <main className="mx-auto max-w-375 p-4 sm:p-7 lg:p-9">
           <Outlet />
         </main>
+        <Footer />
       </div>
     </div>
   );

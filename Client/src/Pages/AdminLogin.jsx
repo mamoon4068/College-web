@@ -166,7 +166,7 @@ const AdminLogin = ({ onLogin }) => {
       className="min-h-screen w-full bg-[#F3F7FC] lg:grid lg:grid-cols-2"
     >
       {/* LEFT SIDE */}
-      <section className="relative flex min-h-95 flex-col justify-between overflow-hidden bg-linear-to-br from-[#102C50] via-[#153E6B] to-[#087EAE] px-6 py-9 text-white sm:px-10 lg:min-h-screen lg:px-14 lg:py-12">
+      <section className="relative flex min-h-95 flex-col justify-between overflow-hidden bg-[#102C50] text-white sm:px-10 lg:min-h-screen lg:px-16 lg:py-12">
 
         {/* Background Decorations */}
         <div className="pointer-events-none absolute -right-28 -top-28 h-80 w-80 rounded-full border border-white/10" />
@@ -175,15 +175,15 @@ const AdminLogin = ({ onLogin }) => {
 
         {/* Brand Logo */}
         <div className="admin-intro relative z-10 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-xl font-extrabold text-[#12375C] shadow-lg">
-            S
-          </div>
+          {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-xl font-extrabold text-[#12375C] shadow-lg">
+          
+          </div> */}
 
           <div>
             <h2 className="text-lg font-bold tracking-wide">
               SCHOOL PORTAL
             </h2>
-            <p className="text-xs tracking-[2px] text-blue-200">
+            <p className="text-xs tracking-[2px] text-white">
               MANAGEMENT SYSTEM
             </p>
           </div>
@@ -191,15 +191,15 @@ const AdminLogin = ({ onLogin }) => {
 
         {/* Main Introduction */}
         <div className="relative z-10 my-12 max-w-xl">
-          <div className="admin-intro mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium tracking-wider text-cyan-100 backdrop-blur-md">
+          {/* <div className="admin-intro mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-medium tracking-wider text-cyan-100 backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-cyan-300" />
             ADMINISTRATION PORTAL
-          </div>
+          </div> */}
 
           <div className="admin-intro">
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl xl:text-6xl">
               Manage Your
-              <span className="mt-2 block text-cyan-300">
+              <span className="mt-2 block text-white">
                 School Smarter.
               </span>
             </h1>
