@@ -311,7 +311,7 @@ const Navbar = () => {
   return (
     <header
       ref={navRef}
-      className="sticky top-0 z-50 mx-auto  w-full max-w-7xl border-b border-gray-200 bg-white shadow-md"
+      className="relative top-0 z-50 mx-auto  w-full max-w-7xl border-b border-gray-200 bg-white shadow-md"
     >
       {/* ================= DESKTOP NAVBAR ================= */}
       <nav className="hidden lg:grid w-full max-w-[1800px] text-8xl mx-auto grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 xl:px-6">
