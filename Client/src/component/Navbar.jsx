@@ -1,7 +1,6 @@
 
 // import { useEffect, useRef, useState } from "react";
 // import gsap from "gsap";
-// import collegeLogo from "../assets/college-logo.jpg";
 // import { Link } from "react-router-dom";
 
 
@@ -201,7 +200,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import collegeLogo from "../assets/college-logo.jpg";
+import { schoolImages } from "../lib/schoolImages";
+const collegeLogo = schoolImages["college-logo.jpg"];
 import { Link } from "react-router-dom";
 
 const navLinks = [

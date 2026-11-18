@@ -2,17 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroStaffImage from "../assets/hero-staff-image.jpeg";
-import heroComputerImage from "../assets/hero-computer-image.jpeg";
-import heroKnowledgePower from "../assets/hero-section govt-image.jpeg";
-import heroAdmissonImage from "../assets/hero-prayer-2 image.jpeg";
+import { schoolImages } from "../lib/schoolImages";
+const heroStaffImage = schoolImages["hero-staff-image.jpeg"];
+const heroComputerImage = schoolImages["hero-computer-image.jpeg"];
+const heroKnowledgePower = schoolImages["hero-section govt-image.jpeg"];
+const heroAdmissonImage = schoolImages["hero-prayer-2 image.jpeg"];
 
-import student1Image from "../assets/student-Profile/student-01.png";
-import student2Image from "../assets/student-Profile/student-08.png";
-import student3Image from "../assets/student-Profile/student-03.png";
-import student4Image from "../assets/student-Profile/student-04.png";
-import student5Image from "../assets/student-Profile/student-05.png";
-import student6Image from "../assets/student-Profile/student-06.png";
+const student1Image = schoolImages["student-Profile/student-01.png"];
+const student2Image = schoolImages["student-Profile/student-08.png"];
+const student3Image = schoolImages["student-Profile/student-03.png"];
+const student4Image = schoolImages["student-Profile/student-04.png"];
+const student5Image = schoolImages["student-Profile/student-05.png"];
+const student6Image = schoolImages["student-Profile/student-06.png"];
 import SchoolCurriculum from "./SchoolCurriculum";
 import EventsNotices from "../component/EventsNotices";
 gsap.registerPlugin(ScrollTrigger);

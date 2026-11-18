@@ -3,9 +3,10 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import collegePhoto from "../assets/AboutUs-College-image.jpg";
-import PrincipalDr from "../assets/Principal.png";
-import Directorpic from "../assets/Director-pic.png";
+import { schoolImages } from "../lib/schoolImages";
+const collegePhoto = schoolImages["AboutUs-College-image.jpg"];
+const PrincipalDr = schoolImages["Principal.png"];
+const Directorpic = schoolImages["Director-pic.png"];
 
 gsap.registerPlugin(ScrollTrigger);
 

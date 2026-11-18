@@ -2,10 +2,11 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PriPrimaryImage from "../assets/student-Profile/Pri-Primary-image.png";
-import PrimaryImage from "../assets/student-Profile/Primary-image.png";
-import MiddleImage from "../assets/student-Profile/6-8 image.png";
-import SeniorImage from "../assets/student-Profile/9-12-image.png";
+import { schoolImages } from "../lib/schoolImages";
+const PriPrimaryImage = schoolImages["student-Profile/Pri-Primary-image.png"];
+const PrimaryImage = schoolImages["student-Profile/Primary-image.png"];
+const MiddleImage = schoolImages["student-Profile/6-8 image.png"];
+const SeniorImage = schoolImages["student-Profile/9-12-image.png"];
 gsap.registerPlugin(ScrollTrigger);
 
 

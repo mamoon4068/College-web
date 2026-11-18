@@ -22,22 +22,9 @@ import {
   Grid3X3,
   Heart,
 } from "lucide-react";
+import { schoolImages } from "../lib/schoolImages";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-// ======================================================
-// AUTOMATICALLY IMPORT ALL IMAGES FROM SRC/ASSETS
-// Supports JPG, JPEG, PNG, WEBP and AVIF.
-// ======================================================
-
-const importedAssets = import.meta.glob(
-  "../assets/**/*.{png,jpg,jpeg,webp,avif}",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
 
 // ======================================================
 // IMAGE CATEGORY DETECTION
@@ -74,7 +61,7 @@ const detectCategory = (filename) => {
 // CONVERT ASSETS INTO GALLERY DATA
 // ======================================================
 
-const galleryImages = Object.entries(importedAssets)
+const galleryImages = Object.entries(schoolImages)
   .map(([path, src], index) => {
     const filename = path.split("/").pop();
 
@@ -579,7 +566,7 @@ const GalleryPage = () => {
                 <div className="text-center">
                   <ImageIcon size={55} className="mx-auto text-[#E7B85B]" />
                   <p className="mt-4 text-sm text-blue-100">
-                    Add photos to src/assets
+                    No photos available
                   </p>
                 </div>
 

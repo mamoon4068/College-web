@@ -2,7 +2,8 @@
 
 
 import React from "react";
-import collegeLogo from "../assets/college-logo.jpg";
+import { schoolImages } from "../lib/schoolImages";
+const collegeLogo = schoolImages["college-logo.jpg"];
 const college = {
   name: "Gayatri Shiksha Niketan S.B.PUR",
   shortName: "",
