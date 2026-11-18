@@ -35,7 +35,7 @@
 // app.use(
 //   cors({
 //     origin: (origin, callback) => {
-//       if (!origin || allowedOrigins.includes(origin)) {
+//       if (!origin || isAllowedOrigin(origin)) {
 //         return callback(null, true);
 //       }
 
@@ -253,7 +253,6 @@ import connectDB from "./config/db.js";
 
 import studentAuthRoutes from "./routes/studentAuthRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
-
 // ==========================================
 // 4. ADMIN AND CMS ROUTES
 // ==========================================
@@ -299,7 +298,7 @@ import {
 // 8. CREATE EXPRESS APPLICATION
 // ==========================================
 
-import { checkOrigin } from "./middleware/checkOrigin.js";
+import { checkOrigin, isAllowedOrigin } from "./middleware/checkOrigin.js";
 
 const app = express();
 
@@ -317,23 +316,12 @@ app.use(helmet());
 // 10. CORS CONFIGURATION
 // ==========================================
 
-// Supports old CLIENT_URL and new FRONTEND_URL
-const frontendOrigins =
-  process.env.FRONTEND_URL ||
-  process.env.CLIENT_URL ||
-  "http://localhost:5173";
-
-const allowedOrigins = frontendOrigins
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
-
 app.use(
   cors({
     origin: (origin, callback) => {
       if (
         !origin ||
-        allowedOrigins.includes(origin)
+        isAllowedOrigin(origin)
       ) {
         return callback(null, true);
       }
