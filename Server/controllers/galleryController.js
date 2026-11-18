@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 import { Readable } from "node:stream";
 
@@ -40,7 +39,7 @@ function uploadToCloudinary(buffer) {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        folder: "school/gallery",
+        folder: "school-website/gallery",
         resource_type: "image",
       },
       (error, result) => {
