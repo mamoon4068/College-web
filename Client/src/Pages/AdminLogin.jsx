@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Admin/AuthContext";
+import { getError } from "../lib/api";
 
 // Small reusable icons
 const MailIcon = () => (
@@ -143,7 +144,7 @@ const AdminLogin = ({ onLogin }) => {
       navigate("/admin", { replace: true });
     } catch (error) {
       setMessage(
-        error.response?.data?.message || error.message || "Login failed. Please check your credentials."
+        getError(error)
       );
     } finally {
       setLoading(false);

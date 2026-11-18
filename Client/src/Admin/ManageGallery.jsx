@@ -83,23 +83,42 @@ export default function ManageGallery() {
     setFile(selected);
   }
 
-  async function upload(e) {
+  async function handleUpload(e) {
     e.preventDefault();
-    if (!file || busy) return;
+    if (busy) return;
+
+    setSuccess("");
+
+    if (!file) {
+      setError("Please select an image");
+      return;
+    }
+
+    const photoTitle = title.trim();
+
+    if (!photoTitle) {
+      setError("Please enter a photo title");
+      return;
+    }
 
     setBusy(true);
     setError("");
 
-    const formData = new FormData();
-    formData.append("image", file);
-    formData.append("title", title.trim());
-    formData.append("category", category);
-
     try {
-      await api.post("/gallery", formData);
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("title", photoTitle);
+      formData.append("category", category);
+
+      const { data } = await api.post("/gallery", formData);
+
+      if (data?.success !== true || !data.photo) {
+        throw new Error(data?.message || "Image upload failed");
+      }
+
       setOpen(false);
       setFile(null);
-      setSuccess("Photo uploaded successfully");
+      setSuccess(data.message || "Photo uploaded successfully");
       await load();
     } catch (err) {
       setError(getError(err));
@@ -196,7 +215,7 @@ export default function ManageGallery() {
         <Modal title="Upload Gallery Photo" onClose={() => setOpen(false)}>
           <Alert message={error} />
 
-          <form onSubmit={upload} className="space-y-5">
+          <form onSubmit={handleUpload} className="space-y-5">
             <label className="block text-sm font-bold text-slate-700">
               Photo Title
               <input
@@ -256,7 +275,7 @@ export default function ManageGallery() {
             )}
 
             <button
-              disabled={busy || !file}
+              disabled={busy}
               className={`${primaryButton} w-full`}
             >
               {busy ? (
